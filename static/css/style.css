@@ -1,0 +1,659 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color:  #f1f1f1;
+  /* scrollbar-color: rgb(133, 193, 0) #f1f1f1; */
+}
+
+/* Scrollbar styling for WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(133, 193, 0);
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #FF3B3B;
+}
+
+/* Smooth scrolling for all browsers */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #f9f9f9;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+li {
+  list-style: none;
+}
+
+
+/* Header styling */
+header {
+  display: flex;
+  /* position: fixed; */
+  z-index: 10;
+  width: 100%;
+  /* background: rgba(255, 255, 255, 0.9); */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+header .wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+header .wrapper .one .logo {
+  width: 160px;
+  margin-top: -50px;
+  margin-bottom: -60px;
+  margin-right: -60px;
+}
+header .wrapper .two nav ul {
+  display: flex;
+  gap: 30px;
+}
+header .wrapper .two nav ul li a {
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 16px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header .wrapper .two nav ul li .active {
+  color: rgb(133, 193, 0);
+  font-weight: bold;
+}
+header .wrapper .two nav ul li a:hover {
+  color: rgb(133, 193, 0);
+  font-weight: bold;
+}
+header .wrapper .three {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+header .wrapper .three svg {
+  cursor: pointer;
+}
+header .wrapper .three button {
+  padding: 10px 30px;
+  background-color: rgb(255, 163, 0);
+  border: 0;
+  font-size: 18px;
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #999;
+  cursor: pointer;
+}
+header .wrapper .three button:hover {
+  background-color: rgb(202, 128, 0);
+  box-shadow: 0 0 5px #999;
+}
+
+
+
+/* Slider styling */
+#slider .slideshow-container {
+  max-width: 100%;
+  position: relative;
+  /* margin-top: 100px; */
+}
+#slider .slideshow-container .mySlides {
+  display: none;
+  overflow: hidden;
+}
+#slider .slideshow-container .mySlides img {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+  /* border-radius: 10px; */
+  animation: smooth-zoom 4s ease-in-out;
+}
+@keyframes smooth-zoom {
+  0%, 100% {
+    transform: scale(1); /* Normal size at the start and end */
+  }
+  50% {
+    transform: scale(1.1); /* Slightly zoomed-in at the midpoint */
+  }
+}
+#slider .slideshow-container .text {
+  color: #fff;
+  font-size: 50px;
+  padding: 12px;
+  position: absolute;
+  bottom: 200px;
+  left: 6vw;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.7);
+}
+#slider .dots-container {
+  text-align: center;
+  margin-top: 10px;
+}
+#slider .dots-container .dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  /* border-radius: 50%; */
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+#slider .dots-container .dot.active, #slider .dots-container .dot:hover {
+  background-color: rgb(133, 193, 0);
+}
+
+
+/* STORIES STYLING */
+#stories .container {
+  display: block;
+  padding: 100px 0px;
+}
+#stories .container .header {
+  color: rgb(133, 193, 0);
+  margin-left: 5vw;
+  font-weight: bold;
+  font-size: 2rem;
+}
+#stories .container .underLine {
+  background-color: rgb(133, 193, 0);
+  width: 10vw;
+  margin-left: 5vw;
+  height: 4px;
+}
+#stories .container .one, #stories .container .two {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 50px;
+}
+#stories .container .card {
+  width: 28vw;
+  height: 73vh;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(51, 51, 51, 0.527);
+  display: flex;
+  flex-direction: column;
+}
+#stories .container .card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.527);
+  cursor: default;
+}
+#stories .container .card .img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+#stories .container .card .img img:hover {
+  transform: scale(1.2);
+}
+#stories .container .card .about {
+  padding: 20px;
+}
+#stories .container .about .title {
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0 0 10px;
+}
+#stories .container .about .write-up {
+  overflow: hidden;
+  max-height: 135px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.2;
+  color: #3b3b3b;
+  position: relative;
+}
+#stories .container .about .write-up::after {
+  content: '...';
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  background-color: #fff;
+}
+#stories .container .about .see-more {
+  background-color: rgb(133, 193, 0);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+#stories .container .about .see-more:hover {
+  background-color: rgb(101, 148, 0);
+}
+
+/* Modal styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-content {
+  background-color: #fff;
+  padding: 20px;
+  padding-top: 60px;
+  border-radius: 2px;
+  width: 80%;
+  text-align: left;
+  position: relative;
+  overflow-x: hidden;
+}
+.modal .modal-content .close {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 60px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  opacity: .2;
+}
+.modal .modal-content .close:hover {
+  opacity: 1;
+}
+.modal .modal-content .full-text {
+  font-weight: normal;
+  justify-content: space-around;
+}
+
+
+/* TAKE ACTION STYLING */
+#take_action {
+  padding: 70px 40px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#take_action .header {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: rgb(255, 163, 0);
+}
+#take_action .description {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  color: #000;
+  line-height: 1.5;
+}
+#take_action .donate-button {
+  background-color: rgb(255, 163, 0);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+#take_action .donate-button:hover {
+  background-color: rgb(207, 131, 0);
+  transform: translateY(-4px);
+}
+
+
+/* WHAT WE DO SECTION */
+#whatwedo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../media/GIRL CHILD DAY 11-10-2024-20241030T134009Z-001/GIRL CHILD DAY 11-10-2024/IMG_0353.jpg');
+  padding: 100px;
+  color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#whatwedo .container {
+  padding: 10px;
+  display: inline-block;
+}
+#whatwedo .container .header {
+  font-weight: 600;
+  font-size: 2.3em;
+  color: rgb(255, 163, 0);
+}
+#whatwedo .container .description {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #cfcfcf;
+  line-height: 27px;
+}
+#whatwedo .container .iconillustrations {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 50px;
+  gap: 200px;
+  margin: 50px; 
+}
+#whatwedo .container .iconillustrations .one,
+#whatwedo .container .iconillustrations .two,
+#whatwedo .container .iconillustrations .three
+ {
+  display: inline-block; /* Ensure the element can move */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  gap: 10px;
+}
+/* Define the bounce animation */
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  20% {
+      transform: translateY(-15px); /* Adjust this value for higher or lower bounce */
+  }
+  40% {
+    transform: translateY(+13px); /* Adjust this value for higher or lower bounce */
+  }
+  80% {
+    transform: translateY(-10px); /* Adjust this value for higher or lower bounce */
+}
+}
+#whatwedo .container .iconillustrations .one:hover,
+#whatwedo .container .iconillustrations .two:hover,
+#whatwedo .container .iconillustrations .three:hover {
+  animation: bounce 1s ease;
+}
+#whatwedo .container .iconillustrations img {
+  width: 100px;
+}
+#whatwedo .container .iconillustrations .label {
+  color: rgb(255, 163, 0);
+  text-align: center;
+  font-weight: 520;
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+
+/* Gallery Section */
+.gallery-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+.gallery-section .gallery-header h2 {
+    font-size: 2.2rem;
+    color: rgb(133, 193, 0);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.gallery-section .gallery-header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Gallery Grid */
+.gallery-section .gallery-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.gallery-section .gallery-grid .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.gallery-section .gallery-grid .gallery-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.gallery-section .gallery-grid .gallery-item:hover img {
+    transform: scale(1.05);
+}
+.gallery-section .gallery-grid .gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.gallery-section .gallery-grid .gallery-item:hover .overlay {
+    opacity: 1;
+}
+/* View All Button */
+.gallery-section .view-all-container {
+    margin-top: 40px;
+}
+.gallery-section .view-all-button {
+    padding: 12px 30px;
+    background-color: rgb(133, 193, 0);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    outline: none;
+    text-transform: uppercase;
+}
+.gallery-section .view-all-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(133, 193, 0, 0.4);
+    transform: scale(0);
+    transition: transform 1s ease;
+    border-radius: 50%;
+}
+.gallery-section .view-all-button:hover::before {
+    transform: scale(2);
+}
+
+
+/* Footer Styling */
+.foundation-footer {
+    /* background-color: #000; Darker shade of original color */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../media/Opeyemi house project -20241030T142837Z-001/Opeyemi house project/IMG_6693.png");
+    background-size: cover;
+    color: #ffffff;
+    padding: 120px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-about h3,
+.footer-links h4,
+.footer-contact h4,
+.footer-newsletter h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.footer-about p,
+.footer-donate p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #333;
+}
+
+.footer-contact p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-contact a,
+.donate-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-contact a:hover,
+.donate-link:hover {
+    color: #333;
+}
+
+.footer-donation p {
+    font-size: .9rem;
+    margin-bottom: 15px;
+    line-height: 25px;
+}
+.footer-donation button {
+    padding: 10px 20px;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color .5s;
+}
+.footer-donation button:hover {
+    background-color: #333;
+}
+
+/* Lower Footer Styling */
+.footer-lower {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-social h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    color: #ffffff;
+    font-size: 1.4rem;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #333;
+}
+
+/* .footer-donate {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../media/Opeyemi house project -20241030T142837Z-001/Opeyemi house project/IMG_6693.png");
+  background-size: cover;
+  padding: 200px;
+} */
+.footer-donate h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.footer-donate p {
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
