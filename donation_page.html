@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Clinton Foundations</title>
+    <link rel="shortcut icon" href="static/media/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/header.css">
+    <link rel="stylesheet" href="static/css/donation_page.css">
+    <link rel="stylesheet" href="static/css/footer.css">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="static/js/payment.js"></script>
+</head>
+<body>
+
+    <section class="main">
+        <div class="main-container">
+            <div class="intro">
+                <img src="static/media/logo.png" alt="King Clinton Children Foundations">
+            </div>
+            <div class="write-up">
+                <p>
+                    We are committed to nurturing and uplifting vulnerable children, providing essential resources to help them reach their full potential. Join us in building a brighter future, one child at a time.
+                    <br>
+                    <br>
+                    <h1>Empower a child's future through care and support today</h1>
+                </p>
+            </div>
+            <div class="form">
+                <form>
+                    <div class="input-cont">
+                        <div class="label">
+                            <label for="Email">
+                                Enter your E-Mail
+                            </label>
+                        </div>
+                        <div class="input">
+                            <input type="mail" class="email" id="email" required>
+                        </div>
+                    </div>
+                    <div class="input-cont">
+                        <div class="label">
+                            <label for="PhoneNumber">
+                                Enter your Telephone Number
+                            </label>
+                        </div>
+                        <div class="input">
+                            <input type="number" class="phone-number" id="phone-number" required>
+                        </div>
+                    </div>
+
+                    <button class="payment-button" onclick="payWithPaystack()">Make Payment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+  <footer class="foundation-footer">
+    <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-about">
+            <h3>About King Clinton Children Foundation</h3>
+            <p>We are committed to nurturing and uplifting vulnerable children, providing essential resources to help them reach their full potential. Join us in building a brighter future, one child at a time.</p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="landing.html#stories">Projects</a></li>
+                <li><a href="landing.html#gallery">Our Gallery</a></li>
+                <li><a href="./donation_page.html">Donate</a></li>
+                <li><a href="malito:kingclintonfoundation@gmail.com">Volunteer</a></li>
+                <li><a href="landing.html#whatwedo">What we do</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="footer-contact">
+            <h4>Contact Information</h4>
+            <p>Email: <a href="mailto:kingclintonfoundation@gmail.com">king Clinton Foundations</a></p>
+            <p>Phone: <a href="tel:+2349035306137">+234 903 5306 137</a></p>
+            <p>Address: 1, Anisulowo street, opposite NTA, Ado-Ekiti, Ekiti State, Nigeria.</p>
+        </div>
+
+        <!-- Newsletter Signup Section -->
+        <div class="footer-donation">
+            <h4>Nurture a Child Today</h4>
+            <p>Empower a child's future through care and support today—your kindness can spark a lifetime of change.</p>
+            <button class="donate-button"><a href="landing.html">Back to Home Page</a></button>
+        </div>
+    </div>
+
+    <!-- Social Media and Donation Call-to-Action Section -->
+    <div class="footer-lower">
+        <div class="footer-social">
+            <h4>Connect with Us</h4>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+        <div class="footer-donate">
+            <h4>Your Support Matters</h4>
+            <p>Help us continue our work in transforming children's lives. <a href="#donate" class="donate-link">Make a donation</a> and be a part of something extraordinary.</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 King Clinton Children Foundation. All rights reserved.</p>
+    </div>
+  </footer>
+
+    <!-- <script src="static/js/script.js"></script> -->
+</body>
+</html>
