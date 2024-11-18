@@ -1,17 +1,18 @@
-const customer_email = 'customer@email.com';
-const amount = 370000;
+const customer_email = 'ridwansanusiessential@gmail.com';
+const amount = 370000; // Note, the amount is always in kobo // so add two 00s to any amount in naira
+const number = "+2349124908844";
 
 function payWithPaystack() {
     var handler = PaystackPop.setup({
-        key: 'sk_test_7ec6fbc07429ec7106efc81b0a46cd8dc1f73481', // put your public key here
+        key: 'pk_test_282168748f5a8730d13aab3c401627d071d5ca73',
         email: customer_email,
-        amount: amount, // amount the customer is supposed to pay
+        amount: amount, 
         metadata: {
             custom_fields: [
             {
                 display_name: "Mobile Number",
                 variable_name: "mobile_number",
-                value: "+2348012345678" // customer's mobile number
+                value: number,
             }
             ]
         },

@@ -25,13 +25,20 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
-setInterval(() => { plusSlides(1); }, 15000); // Auto slide every 5 seconds
+setInterval(() => { plusSlides(1); }, 10000); // Auto slide every 10 seconds
+
 
 function showModal(button) {
   const modal = document.getElementById("modal");
-  const fullText = button.previousElementSibling.innerHTML;
+
+  // Get the header text relative to the clicked button
+  const card = button.closest(".card");
+  const header = card.querySelector(".title").innerHTML;
+  const fullText = card.querySelector(".write-up").innerHTML; 
+
   modal.style.display = "flex";
   document.querySelector(".modal .full-text").innerHTML = fullText;
+  document.querySelector(".modal .header").innerHTML = header;
 }
 
 function closeModal() {
@@ -45,3 +52,31 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 };
+
+
+
+let toggle_state = "OFF";
+
+function toggleMenu() {
+  const menu = document.querySelector('header .wrapper .two nav ul');
+  var closebtn = document.querySelector('.menu-toggle svg.close-icon');
+  var menubtn = document.querySelector('.menu-toggle svg.menu-icon');
+
+  if (toggle_state === "OFF") {
+    menu.classList.add('show');  // Show the list
+    toggle_state = "ON";
+    closebtn.style.display = "block";
+    menubtn.style.display = "none";
+  } else {
+    menu.classList.remove('show');  // Hide the list
+    toggle_state = "OFF";
+    closebtn.style.display = "none";
+    menubtn.style.display = "block";
+  }
+}
+
+// PRELOADER
+window.addEventListener("load", function() {
+  const preloader = document.getElementById("preloader");
+  preloader.style.display = "none"; 
+});
