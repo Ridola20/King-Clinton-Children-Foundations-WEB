@@ -1,0 +1,110 @@
+/* Header styling */
+header {
+  display: flex;
+  z-index: 10;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+header .wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+header .wrapper .one .logo {
+  width: 160px;
+  margin-top: -50px;
+  margin-bottom: -60px;
+  margin-right: -60px;
+}
+header .wrapper .two nav ul {
+  display: flex;
+  gap: 30px;
+}
+header .wrapper .two nav ul li a {
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 16px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header .wrapper .two nav ul li .active {
+  color: rgb(133, 193, 0);
+  font-weight: bold;
+}
+header .wrapper .two nav ul li a:hover {
+  color: rgb(133, 193, 0);
+  font-weight: bold;
+}
+header .wrapper .three {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+header .wrapper .three svg {
+  cursor: pointer;
+}
+header .wrapper .three button {
+  padding: 10px 30px;
+  background-color: rgb(255, 163, 0);
+  border: 0;
+  font-size: 18px;
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #999;
+  cursor: pointer;
+}
+header .wrapper .three button:hover {
+  background-color: rgb(202, 128, 0);
+  box-shadow: 0 0 5px #999;
+}
+header .wrapper .two nav .menu-toggle {
+  /* display: none; */
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.menu-toggle svg.close-icon {
+  display: none;
+}
+/* ============= MEDIA QUERIES ============ */
+@media screen and (min-width: 995px) {
+  header .wrapper .two nav .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 996px) {
+  header .wrapper .two nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  header .wrapper .two nav ul.show {
+    display: flex;
+  }
+  .menu-toggle {
+      display: block;
+  }
+  header .wrapper .three {
+      display: none;
+  }
+  .menu-toggle svg.menu-icon {
+    display: block;
+  }
+}
