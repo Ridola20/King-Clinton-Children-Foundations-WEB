@@ -1,30 +1,89 @@
-const customer_email = 'ridwansanusiessential@gmail.com';
-const amount = 370000; // Note, the amount is always in kobo // so add two 00s to any amount in naira
-const number = "+2349124908844";
-
 function payWithPaystack() {
+    const email = document.getElementById("email").value;
+    const phoneNumber = document.getElementById("phoneNumber").value;
+    const amount = document.getElementById("transferAmount").value;
+
+    // Validate inputs
+    if (!email || !phoneNumber || !amount) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    const amountInKobo = parseFloat(amount) * 100;
+
     var handler = PaystackPop.setup({
-        key: 'pk_test_282168748f5a8730d13aab3c401627d071d5ca73',
-        email: customer_email,
-        amount: amount, 
+        key: 'pk_test_282168748f5a8730d13aab3c401627d071d5ca73', // Replace with your public key
+        email: email,
+        amount: amountInKobo, 
         metadata: {
             custom_fields: [
-            {
-                display_name: "Mobile Number",
-                variable_name: "mobile_number",
-                value: number,
-            }
-            ]
+                {
+                    display_name: email,
+                    variable_name: "Children Foundation Donation",
+                    value: phoneNumber,
+                },
+            ],
         },
         callback: function (response) {
-            // After the transaction has been completed
-            alert('success. transaction ref is ' + response); // transaction
-        //   Open a thanks page
+            alert('Success! Transaction reference: ' + response.reference);
+            // You can redirect to a success page or log the response
+            fetch(`https://api.paystack.co/transaction/verify/${response.reference}`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer YOUR_SECRET_KEY`, // Replace with your secret key
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.status) {
+                        const transaction = data.data;
+        
+                        // Generate and display the receipt
+                        generateReceipt(transaction);
+                    } else {
+                        alert('Failed to verify transaction.');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error verifying transaction:', error);
+                });
         },
         onClose: function () {
-            // When the user closes the payment modal
             alert('Transaction cancelled');
-        }
+        },
     });
+
     handler.openIframe();
 }
+
+function generateReceipt(transaction) {
+    const receiptDetails = `
+        <div style="max-width: 600px; margin: 20px auto; padding: 20px; font-family: Arial, sans-serif; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; color: #4CAF50;">Donation Receipt</h2>
+            <p><strong>Transaction Reference:</strong> ${transaction.reference}</p>
+            <p><strong>Date:</strong> ${new Date(transaction.transaction_date).toLocaleString()}</p>
+            <p><strong>Amount:</strong> ${(transaction.amount / 100).toLocaleString()} ${transaction.currency}</p>
+            <p><strong>Email:</strong> ${transaction.customer.email}</p>
+            <p><strong>Phone Number:</strong> ${transaction.metadata.custom_fields[0].value}</p>
+            <p>Thank you for your generous donation to the Children Foundation. Your contribution makes a difference!</p>
+        </div>
+    `;
+
+    // Display receipt on the page
+    document.body.innerHTML = receiptDetails;
+
+    // Optionally offer a print/download option
+    const printButton = document.createElement('button');
+    printButton.innerText = 'Print Receipt';
+    printButton.style = 'display: block; margin: 20px auto; padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;';
+    printButton.onclick = () => window.print();
+    document.body.appendChild(printButton);
+}
+
+
+// PRELOADER
+window.addEventListener("load", function() {
+    const preloader = document.getElementById("preloader");
+    preloader.style.display = "none"; 
+});
